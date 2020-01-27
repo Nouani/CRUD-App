@@ -4,6 +4,28 @@ const app = express();
 app.use(express.json());
 
 let projects = [];
+let counterRequests = 0;
+
+app.use((req, res, next) => {
+    counterRequests++;
+    console.log(`Número de requisições feitas: ${counterRequests}`);
+
+    return next();
+})
+
+function checkIdExists(req, res, next){
+    const projectFilter = projects.filter(project => {
+        if (project.id == req.params.id){
+            return project;
+        }
+    });
+
+    if (!projectFilter[0]){
+        return res.status(400).json({ error: 'User ID is required' });
+    }
+
+    return next();
+}
 
 app.post('/projects', (req, res) => {
     const { id, title } = req.body;
@@ -17,7 +39,7 @@ app.get('/projects', (req, res) => {
     return res.json(projects);
 });
 
-app.put('/projects/:id', (req, res) => {
+app.put('/projects/:id', checkIdExists, (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
@@ -32,7 +54,7 @@ app.put('/projects/:id', (req, res) => {
     return res.json(projects);
 });
 
-app.delete('/projects/:id', (req, res) => {
+app.delete('/projects/:id', checkIdExists, (req, res) => {
     const { id } = req.params;
 
     projects = projects.filter(project => {
@@ -44,7 +66,7 @@ app.delete('/projects/:id', (req, res) => {
     return res.json(projects);
 });
 
-app.post('/projects/:id/tasks', (req, res) => {
+app.post('/projects/:id/tasks', checkIdExists, (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
