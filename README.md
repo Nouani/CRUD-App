@@ -52,7 +52,7 @@ We should create a simple application with NodeJS, having routes of the type: GE
 $ git clone https://github.com/Nouani/GoStack-FirstChallenge.git
 
 # Go into the repository
-$ cd Pipefy-UI
+$ cd GoStack-FirstChallenge
 
 # Install dependencies 
 $ yarn install
