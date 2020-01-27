@@ -33,7 +33,15 @@ app.put('/projects/:id', (req, res) => {
 });
 
 app.delete('/projects/:id', (req, res) => {
-    
+    const { id } = req.params;
+
+    projects = projects.filter(project => {
+        if (project.id != id){
+            return project;
+        }
+    })
+
+    return res.json(projects);
 });
 
 app.listen(3333);
