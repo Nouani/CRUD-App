@@ -3,25 +3,20 @@ const app = express();
 
 app.use(express.json());
 
-let projects = [];
-let counterRequests = 0;
+const projects = [];
 
 app.use((req, res, next) => {
-    counterRequests++;
-    console.log(`Número de requisições feitas: ${counterRequests}`);
+    console.count('Número de requisições');
 
     return next();
 })
 
-function checkIdExists(req, res, next){
-    const projectFilter = projects.filter(project => {
-        if (project.id == req.params.id){
-            return project;
-        }
-    });
+function checkProjectExists(req, res, next){
+    const { id } = req.params;
+    const project = projects.find(p => p.id == id);
 
-    if (!projectFilter[0]){
-        return res.status(400).json({ error: 'User ID is required' });
+    if (!project){
+        return res.status(400).json({ error: 'Project not found' });
     }
 
     return next();
@@ -29,56 +24,51 @@ function checkIdExists(req, res, next){
 
 app.post('/projects', (req, res) => {
     const { id, title } = req.body;
+
+    const project = {
+        id, 
+        title,
+        tasks: []
+    }
+    projects.push(project);
     
-    projects.push({id, title, tasks: []});
-    
-    return res.json(projects);
+    return res.json(project);
 });
 
 app.get('/projects', (req, res) => {
     return res.json(projects);
 });
 
-app.put('/projects/:id', checkIdExists, (req, res) => {
+app.put('/projects/:id', checkProjectExists, (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
-    projects = projects.filter(project => {
-        if (project.id == id){
-            project.title = title;
-        }
+    const project = projects.find(p => p.id == id);
 
-        return project;
-    });
+    project.title = title;
+
+    return res.json(project);
+});
+
+app.delete('/projects/:id', checkProjectExists, (req, res) => {
+    const { id } = req.params;
+
+    const projectIndex = projects.findIndex(p => p.id == id);
+
+    projects.splice(projectIndex, 1);
 
     return res.json(projects);
 });
 
-app.delete('/projects/:id', checkIdExists, (req, res) => {
-    const { id } = req.params;
-
-    projects = projects.filter(project => {
-        if (project.id != id){
-            return project;
-        }
-    })
-
-    return res.json(projects);
-});
-
-app.post('/projects/:id/tasks', checkIdExists, (req, res) => {
+app.post('/projects/:id/tasks', checkProjectExists, (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
-    projects = projects.filter(project => {
-        if (project.id == id){
-            project.tasks.push(title);
-        }
+    const project = projects.find(p => p.id == id);
 
-        return project;
-    });
+    project.tasks.push(title);
 
-    return res.json(projects);
+    return res.json(project);
 });
 
 app.listen(3333);
