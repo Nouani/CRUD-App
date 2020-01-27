@@ -44,4 +44,19 @@ app.delete('/projects/:id', (req, res) => {
     return res.json(projects);
 });
 
+app.post('/projects/:id/tasks', (req, res) => {
+    const { id } = req.params;
+    const { title } = req.body;
+
+    projects = projects.filter(project => {
+        if (project.id == id){
+            project.tasks.push(title);
+        }
+
+        return project;
+    });
+
+    return res.json(projects);
+});
+
 app.listen(3333);
