@@ -29,6 +29,7 @@
 <p align="center">
   <a href="#page_with_curl-description">Description</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#blue_book-references">References</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#person_with_blond_hair-author-info">Author Info</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
@@ -62,6 +63,11 @@ $ yarn dev
 ```
 
 #### Note: You must have installed the Yarn package manager and NodeJS globally.
+
+## :blue_book: References
+
+- [Rocketseat](https://docs.rocketseat.dev/)
+- [Stackoverflow](https://stackoverflow.com/)
 
 ## :person_with_blond_hair: Author Info
 
