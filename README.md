@@ -5,24 +5,24 @@
 ---
 
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Nouani/GoStack-FirstChallenge.svg">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Nouani/CRUD-App.svg">
 
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Nouani/GoStack-FirstChallenge.svg">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Nouani/CRUD-App.svg">
 
-  <a href="https://www.codacy.com/app/Nouani/GoStack-FirstChallenge?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nouani/GoStack-FirstChallenge&amp;utm_campaign=Badge_Grade">
+  <a href="https://www.codacy.com/app/Nouani/CRUD-App?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nouani/CRUD-App&amp;utm_campaign=Badge_Grade">
     <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/1b577a07dda843aba09f4bc55d1af8fc.svg">
   </a>
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Nouani/GoStack-FirstChallenge.svg">
-  <a href="https://github.com/Nouani/GoStack-FirstChallenge/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Nouani/GoStack-FirstChallenge.svg">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Nouani/CRUD-App.svg">
+  <a href="https://github.com/Nouani/CRUD-App/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Nouani/CRUD-App.svg">
   </a>
 
-  <a href="https://github.com/Nouani/GoStack-FirstChallenge/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/Nouani/GoStack-FirstChallenge.svg">
+  <a href="https://github.com/Nouani/CRUD-App/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/Nouani/CRUD-App.svg">
   </a>
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/Nouani/GoStack-FirstChallenge.svg">
+  <img alt="GitHub" src="https://img.shields.io/github/license/Nouani/CRUD-App.svg">
 </p>
 
 
@@ -50,13 +50,13 @@ We should create a simple application with NodeJS, having routes of the type: GE
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/Nouani/GoStack-FirstChallenge.git
+$ git clone https://github.com/Nouani/CRUD-App.git
 
 # Go into the repository
-$ cd GoStack-FirstChallenge
+$ cd CRUD-App
 
 # Install dependencies 
-$ yarn install
+$ yarn
 
 # Run the app
 $ yarn dev
